@@ -45,11 +45,11 @@ public class Chromosome {
         return child;
     }
 
-    public void set(int spot, boolean allele) {
+    private void set(int spot, boolean allele) {
         chromo.set(spot, allele);
     }
 
-    public boolean get(int spot) {
+    private boolean get(int spot) {
         return chromo.get(spot);
     }
 

@@ -1,4 +1,3 @@
-import java.lang.Math;
 
 public class AlleleCrossRunner {
     public static void main(String[] args) {
