@@ -23,7 +23,7 @@ public class Chromosome {
         }
     }
 
-    public Chromosome(int numgenes, BitSet bs) {
+    private Chromosome(int numgenes, BitSet bs) {
         genecount = numgenes;
         gc = numgenes;
         chromo = bs;
@@ -51,7 +51,7 @@ public class Chromosome {
         return Math.random() < 0.5;
     }
 
-    public static Chromosome cross(Chromosome parent1, Chromosome parent2) {
+    static Chromosome cross(Chromosome parent1, Chromosome parent2) {
         BitSet child = new BitSet();
         for (int i = 0; i < getGeneCount() * 2; i += 2) {
             boolean chooseA1 = Chromosome.randomBoolean();
