@@ -59,12 +59,14 @@ public class Chromosome {
 
             if (chooseA1) {
                 child.set(i, parent1.getAllele(i));
-            } else {
+            }
+            else {
                 child.set(i, parent1.getAllele(i + 1));
             }
             if (chooseA2) {
                 child.set(i + 1, parent2.getAllele(i));
-            } else {
+            }
+            else {
                 child.set(i + 1, parent2.getAllele(i + 1));
             }
         }
@@ -86,7 +88,23 @@ public class Chromosome {
     public String toString() {
         String printer = "";
         for (int i = 0; i < genecount * 2; i++) {
-            printer += getAllele(i) + ", ";
+            if (getAllele(i)) {                 //true = dominant
+                char c = (char) (65 + i);
+                if (i % 2 == 1) {
+                    c--;
+                }
+                printer += c;
+            }
+            else {
+                char c = (char) (97 + i);
+                if (i % 2 == 1) {
+                    c--;
+                }
+                printer += c;
+            }
+            if (i % 2 == 1) {
+                printer +=  ", ";
+            }
         }
         return "[" + printer.substring(0, printer.length() - 2) + "]";
     }
