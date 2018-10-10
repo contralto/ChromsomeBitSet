@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.BitSet;
 import java.lang.Math;
 
@@ -86,19 +85,21 @@ public class Chromosome {
     }
 
     public String toString() {
+
         String printer = "";
+        int j = 0;
         for (int i = 0; i < genecount * 2; i++) {
             if (getAllele(i)) {                 //true = dominant
-                char c = (char) (65 + i);
+                char c = (char) (65 + j);
                 if (i % 2 == 1) {
-                    c--;
+                    j++;
                 }
                 printer += c;
             }
             else {
-                char c = (char) (97 + i);
+                char c = (char) (97 + j);
                 if (i % 2 == 1) {
-                    c--;
+                    j++;
                 }
                 printer += c;
             }
