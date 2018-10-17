@@ -15,7 +15,7 @@ public class Chromosome {
         gc = 1;
     }
 
-    public Chromosome(int numgenes) {
+    Chromosome(int numgenes) {
         genecount = numgenes;
         gc = numgenes;
         chromo = new BitSet(genecount);
