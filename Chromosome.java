@@ -6,6 +6,8 @@ public class Chromosome {
     private BitSet chromo;
     private int genecount;
     private static int gc;
+    private boolean hasName = false;
+    private String[] alleleNames;
 
     public Chromosome() {
         chromo = new BitSet();
@@ -84,27 +86,47 @@ public class Chromosome {
         return gc;
     }
 
-    public String toString() {
+    private void addName(String[] names) {
+        hasName = true;
+        alleleNames = names;
+    }
 
+    public String toString() {
         String printer = "";
         int j = 0;
-        for (int i = 0; i < genecount * 2; i++) {
-            if (getAllele(i)) {                 //true = dominant
-                char c = (char) (65 + j);
-                if (i % 2 == 1) {
-                    j++;
+        if (hasName) {
+            for (int i = 0; i < genecount * 2; i++) {
+                if (getAllele(i)) {
+                    char c = alleleNames[i].charAt(0);
+                    String character = c + "";
+                    printer += character.toUpperCase();
+
                 }
-                printer += c;
-            }
-            else {
-                char c = (char) (97 + j);
-                if (i % 2 == 1) {
-                    j++;
+                else {
+                    char c = alleleNames[i].charAt(0);
+                    String character = c + "";
+                    printer += character.toLowerCase();
                 }
-                printer += c;
             }
-            if (i % 2 == 1) {
-                printer +=  ", ";
+        }
+        else {
+            for (int i = 0; i < genecount * 2; i++) {
+                if (getAllele(i)) {                 //true = dominant
+                    char c = (char) (65 + j);
+                    if (i % 2 == 1) {
+                        j++;
+                    }
+                    printer += c;
+                } else {
+                    char c = (char) (97 + j);
+                    if (i % 2 == 1) {
+                        j++;
+                    }
+                    printer += c;
+                }
+                if (i % 2 == 1) {
+                    printer += ", ";
+                }
             }
         }
         return "[" + printer.substring(0, printer.length() - 2) + "]";
