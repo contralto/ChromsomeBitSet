@@ -9,6 +9,9 @@ public class AlleleCrossRunner {
         Chromosome parent3 = new Chromosome(2);
         Chromosome parent4 = new Chromosome(2);
 
+
+        //dominant/recessive; if you want a specific letter you can also enter that as the string
+        //parent3.addName(new String[]{"brown/blue eyes", "freckles/no freckles"});
         Chromosome child2 = Chromosome.cross(parent3, parent4);
 
         System.out.println("p1: " + parent1.toString() + ", p2: " + parent2.toString());
